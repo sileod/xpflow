@@ -5,7 +5,6 @@ import itertools
 import time
 import random
 from easydict import EasyDict as edict
-from sqlitedict import SqliteDict
 
 class Xp:
     def __init__(self):
