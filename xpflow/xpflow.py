@@ -42,7 +42,6 @@ class Xp:
             for a, v in zip(keys, values):
                 args[a] = v
             args._tsi = time.time()
-            args._tags = tags
 
             selfi = copy.deepcopy(self)
             for k, v in args.items():
