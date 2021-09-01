@@ -13,6 +13,7 @@ class Xp:
             k: v for (k, v) in self.__class__.__dict__.items() if not k.startswith("_")
         }
         self._lists = {k for k in dir(self) if type(getattr(self, k)) == list}
+        self.xp_name = type(self).__name__
 
     def _process_xp(self):
         xp = {
@@ -27,8 +28,7 @@ class Xp:
         return xp
 
     def values(self):
-        xp = self._process_xp()
-        return list(itertools.product(*[xp[a] for a in xp if a != "tags"]))
+        return self._process_xp().values()
 
     def keys(self):
         return self._process_xp().keys()
@@ -36,7 +36,7 @@ class Xp:
     def __iter__(self):
         keys = self.keys()
         values_list = self.values()
-        for values in tqdm(values_list):
+        for values in values_list:
 
             args = edict({})
             for a, v in zip(keys, values):
