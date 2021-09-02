@@ -11,7 +11,7 @@ for b in [1,2]:
         # do stuff(args)
 ```
 This involves repetition, low readability it gets messy when you nest many loops.
-It is possible to use dictionaries with some lists that are values, but you would have to implement custom functions to take care of the loops.
+It is possible to use dictionaries with some values that are lists, but you would have to implement custom functions to take care of them.
 
 `xpflow` allows a concise, readable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of lists to represent values that should actually be lists.
 
