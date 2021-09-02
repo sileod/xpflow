@@ -1,6 +1,6 @@
 # xpflow
 
-Did you ever perform experiments by nesting loops ? Like this ?
+Did you ever perform experiments by nesting loops like this ? :
 ```python
 args=edict({a:'A'}}
 
@@ -10,7 +10,7 @@ for b in [1,2]:
         args.b=b
         # do stuff(args)
 ```
-Using dictionaries is an alternative, but you would have to implement custom functions to take care of the loops.
+While it is possible to use dictionaries, but you would have to implement custom functions to take care of the loops.
 
 `xpflow` allows a concise and readable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of list to represent values that should actually be lists.
 
