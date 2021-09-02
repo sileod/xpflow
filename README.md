@@ -17,6 +17,10 @@ It is possible to represent experiments with dictionaries where some values that
 
 ### Installation
 ```
+pip install xpflow
+```
+or the last version with
+```
 pip install git+https://github.com/sileod/xpflow.git 
 ```
 
