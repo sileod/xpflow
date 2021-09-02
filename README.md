@@ -12,7 +12,13 @@ for b in [1,2]:
 ```
 While it is possible to use dictionaries, but you would have to implement custom functions to take care of the loops.
 
-`xpflow` allows a concise and readable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of list to represent values that should actually be lists.
+`xpflow` allows a concise, readable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of lists to represent values that should actually be lists.
+
+### Installation
+```
+pip install git+https://github.com/sileod/xpflow.git 
+```
+
 
 ### Usage
 
@@ -41,9 +47,4 @@ A 2 0.002 [1, 2]
 ```
 
 
-### Installation
-Installation:
-```
-pip install git+https://github.com/sileod/xpflow.git 
-```
 
