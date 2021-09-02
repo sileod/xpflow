@@ -51,4 +51,4 @@ A 2 0.001 [1, 2]
 A 2 0.002 [1, 2]
 ```
 
-Experiments can be performed sequentially : `itertools.chain(base(), learning_rate())` will sequentially perform `base` and `learning_rate`. 
+Experiments can be performed sequentially : `itertools.chain(xp1(), xp2())` will return the parameters for `xp1` then `xp2`. 
