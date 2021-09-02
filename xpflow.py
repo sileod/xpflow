@@ -19,7 +19,6 @@ class Xp:
             if not k.startswith("_") and not callable(getattr(self, k))
         }
         for (k, v) in xp.items():
-            assert type(v) != tuple
             if type(v) != list:
                 xp[k] = [v]
         return xp
@@ -27,7 +26,7 @@ class Xp:
     def _values(self):
         xp = self._process_xp()
         return list(itertools.product(*[xp[a] for a in xp]))
-    
+
     def keys(self):
         return self._process_xp().keys()
 
