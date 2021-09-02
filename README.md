@@ -2,7 +2,7 @@
 
 Did you ever perform experiments by nesting loops like this ? :
 ```python
-args=edict({'a':'A'}}
+args=edict({'a':'A'})
 
 for b in [1,2]:
     for lr in [1e-3, 2e-3]:
