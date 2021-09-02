@@ -6,5 +6,5 @@ setup(name='xpflow',
       url='https://github.com/sileod/xpflow',
       author='sileod',
       license='MIT',
-      packages=['py_modules'],
+      packages=['xpflow'],
       zip_safe=False)
