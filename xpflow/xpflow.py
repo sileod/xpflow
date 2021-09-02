@@ -27,15 +27,16 @@ class Xp:
                 xp[k] = [v]
         return xp
 
-    def values(self):
-        return self._process_xp().values()
-
+    def _values(self):
+        xp = self._process_xp()
+        return list(itertools.product(*[xp[a] for a in xp]))
+    
     def keys(self):
         return self._process_xp().keys()
 
     def __iter__(self):
         keys = self.keys()
-        values_list = self.values()
+        values_list = self._values()
         for values in values_list:
 
             args = edict({})
