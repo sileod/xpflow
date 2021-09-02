@@ -47,14 +47,14 @@ class Xp:
             selfi = copy.deepcopy(self)
             for k, v in args.items():
                 setattr(selfi, k, v)
-            yield selfi
+            yield selfi.edict()
 
     def __str__(self):
         return str(self.__dict__)
 
     def edict(self):
-        return {
+        return edict({
             k: getattr(self, k)
             for k in self.__dict__
             if not callable(getattr(self, k)) and not k.startswith("_")
-        }
+        })
