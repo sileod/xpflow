@@ -41,10 +41,10 @@ for args in learning_rate():
 will print the following output:
 ```
 A 1 0.001 [1, 2]
-A 1 0.002 [1, 2]
+A 1 0.002 [1, 2
 A 2 0.001 [1, 2]
 A 2 0.002 [1, 2]
 ```
 
-
+Experiments can be chained with itertools. `itertools.chain(base(), learning_rate())` will sequentially perform `base` and `learning_rate`. 
 
