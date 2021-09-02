@@ -21,7 +21,7 @@ pip install git+https://github.com/sileod/xpflow.git
 
 
 ### Usage
-
+Just make sure that your experiment classes inherits the Xp class. Instanciating the class will provide an iterator that will yield the possible combinations of the values.
 
 ```python
 from xpflow import Xp
