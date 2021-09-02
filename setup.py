@@ -6,5 +6,6 @@ setup(name='xpflow',
       url='https://github.com/sileod/xpflow',
       author='sileod',
       license='MIT',
+      install_requires=['easydict']
       py_modules=['xpflow'],
       zip_safe=False)
