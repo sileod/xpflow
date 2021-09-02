@@ -8,7 +8,7 @@ for b in [1,2]:
     for lr in [1e-3, 2e-3]:
         args.lr=lr
         args.b=b
-        # do stuff(args)
+        # perform_experiment_and_logging(args)
 ```
 This involves repetition, low readability and it gets messy when you nest many loops.
 It is possible to represent experiments with dictionaries where some values that are lists, but you would have to implement custom functions to take care of them.
@@ -36,7 +36,7 @@ class learning_rate(base):
     list_values=[[1,2]]
     
 for args in learning_rate():
-    # do_stuff(args)
+    # perform_experiment_and_logging(args)
     print(args.a, args.b, args.lr, args.list_values)
 ```
 will print the following output:
