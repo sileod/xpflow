@@ -46,4 +46,4 @@ A 2 0.001 [1, 2]
 A 2 0.002 [1, 2]
 ```
 
-Experiments can be chained with itertools. `itertools.chain(base(), learning_rate())` will sequentially perform `base` and `learning_rate`. 
+Experiments can be performed with itertools. `itertools.chain(base(), learning_rate())` will sequentially perform `base` and `learning_rate`. 
