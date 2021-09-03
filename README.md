@@ -58,7 +58,7 @@ You can easily distribute the computations across processes by passing argparse 
 
 ```python
 for i, args in enumerate(xp()):
-    if i%arg_parse_args.number_of_processes != argparse_args.process_index:
+    if i%argparse_args.number_of_processes != argparse_args.process_index:
         continue
     # perform_experiment_and_logging(args)
 ```
@@ -71,12 +71,12 @@ for i, args in enumerate(xp()):
 You can perform a random search by using lengthy lists of possible values and then randomly discarding parameter combinations.
 
 ```python
-class random_search(Xp):
+class random_search_space(Xp):
     learning_rate=list(np.logspace(-6,-1,100))
     batch_size=[32,64,128,256]*10
     nb_epochs=[3,4,5]*10
 
-for args in random_search():
+for args in random_search_space():
     if random.random()>1/100: 
         continue # skip 99% of the possible combinations
     # perform_experiment_and_logging(args)
