@@ -72,7 +72,7 @@ You can perform a random search by using large list of possible values and then 
 
 ```python
 class random_search(Xp):
-    learning_rate=list(np.logspace(-3,3,100))
+    learning_rate=list(np.logspace(-6,-1,100))
     batch_size=[32,64,128,256]*10
     nb_epochs=[3,4,5]*10
 
