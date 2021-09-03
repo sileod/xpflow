@@ -10,7 +10,7 @@ for b in [1,2]:
         args.b=b
         # perform_experiment_and_logging(args)
 ```
-This involves repetition, low readability and it gets messy with many loops. It is possible to represent experiments with dictionaries where some values are lists, but you would have to implement custom functions to take care of them.
+This involves repetition, low readability and it gets messy when there are many loops. It is possible to represent experiments with dictionaries where some values are lists, but you would have to implement custom functions to take care of them.
 
 `xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of lists to represent values that should actually be lists.
 
