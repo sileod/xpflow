@@ -14,6 +14,8 @@ This involves repetition, low readability and it gets messy with many loops. It 
 
 `xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments by using classes. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. You can use a list of lists to represent values that should actually be lists.
 
+With xpflow, you can also store and share your experiments for better reproducibility.
+
 ## Installation
 ```
 pip install xpflow
