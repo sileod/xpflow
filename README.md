@@ -53,9 +53,6 @@ A 2 0.002 [1, 2]
 
 ##  Other specific use cases:
 
-#### Sequential experiments
-`itertools.chain(xp1(), xp2())` will return the parameters for `xp1` then `xp2`. 
-
 #### Distributing computations across processes
 You can easily distribute the computations across processes by passing argparse arguments to your main script.
 
@@ -65,6 +62,9 @@ for i, args in enumerate(xp()):
         continue
     # perform_experiment_and_logging(args)
 ```
+
+#### Sequential experiments
+`itertools.chain(xp1(), xp2())` will return the parameters for `xp1` then `xp2`. 
 
 #### Random search
 
