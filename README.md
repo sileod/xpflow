@@ -68,7 +68,7 @@ for i, args in enumerate(xp()):
 
 #### Random search
 
-You can perform a random search by using lengthy lists of possible values and then randomly sampling experiments.
+You can perform a random search by using lengthy lists of possible values and then randomly discarding parameter combinations.
 
 ```python
 class random_search(Xp):
