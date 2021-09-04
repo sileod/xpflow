@@ -21,11 +21,17 @@ learning_rate = {
 ```
 However, you have to write custom code to take care of the list values.
 
-`xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects.
-With xpflow, you can also store and share your experiments for better reproducibility.
+`xpflow` does that under the hood. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects.
 
 ```python
 from xpflow import Xp
+
+for args in Xp(learning_rate):
+    # perform_experiment_and_logging(args)
+```
+This allows a concise, readable, shrarable, composable, and framework-agnostic formulation of experiments. You can also use classes instead of dictionaries. Classes are a bit less verbose (no comas and quote on parameter names), they enforce tabuled structure, and inheritence is cleaner.
+
+```python
 
 class learning_rate(Xp):
     a = 'A'
