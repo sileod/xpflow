@@ -1,15 +1,10 @@
 import copy
 import itertools
-import time
 from easydict import EasyDict as edict
+
 
 class Xp:
     def __init__(self):
-        self._ts = time.time()
-        self._leaves = {
-            k: v for (k, v) in self.__class__.__dict__.items() if not k.startswith("_")
-        }
-        self._lists = {k for k in dir(self) if type(getattr(self, k)) == list}
         self.xp_name = type(self).__name__
 
     def _process_xp(self):
@@ -29,6 +24,15 @@ class Xp:
 
     def keys(self):
         return self._process_xp().keys()
+    
+    def edict(self):
+        return edict(
+            {
+                k: getattr(self, k)
+                for k in self.__dict__
+                if not callable(getattr(self, k)) and not k.startswith("_")
+            }
+        )
 
     def __iter__(self):
         keys = self.keys()
@@ -38,7 +42,6 @@ class Xp:
             args = edict({})
             for a, v in zip(keys, values):
                 args[a] = v
-            args._tsi = time.time()
 
             selfi = copy.deepcopy(self)
             for k, v in args.items():
@@ -47,10 +50,7 @@ class Xp:
 
     def __str__(self):
         return str(self.__dict__)
-
-    def edict(self):
-        return edict({
-            k: getattr(self, k)
-            for k in self.__dict__
-            if not callable(getattr(self, k)) and not k.startswith("_")
-        })
+    
+    def __len__(self):
+        return len([x for x in self])
+    
