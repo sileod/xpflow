@@ -2,18 +2,39 @@
 
 Did you ever perform experiments by nesting loops like this ? 
 ```python
-args=edict({'a':'A'})
+args = edict({'a':'A'})
 
 for b in [1,2]:
     for lr in [1e-3, 2e-3]:
-        args.lr=lr
-        args.b=b
+        args.lr = lr
+        args.b = b
         # perform_experiment_and_logging(args)
 ```
-This involves repetition, low readability and it gets messy when there are many loops. It is possible to represent experiments with dictionaries where some values are lists, but you would have to write custom code to take care of them.
 
-`xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. 
+This get messy when there are many loops. In addition, nested loops are not objects, so you cannot store them or share them. A better alternative is to represent experiments with dictionaries where some values are lists, e.g.: 
+```python 
+learning_rate = {
+    'a' : 'A',
+    'b' : [1, 2],
+    'lr' : [1e-3, 2e-3]
+}
+```
+but you would have to write custom code to take care of the list values.
+
+`xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects.
 With xpflow, you can also store and share your experiments for better reproducibility.
+
+```python
+from xpflow import Xp
+
+class learning_rate(Xp):
+    a = 'A'
+    b = [1, 2]
+    lr = [1e-3, 2e-3]
+    
+for args in learning_rate():
+    # perform_experiment_and_logging(args)
+```
 
 ## Installation
 ```
@@ -36,8 +57,8 @@ class base(Xp):
     b=[1,2]
 
 class learning_rate(base):
-    lr=[1e-3,2e-3]
-    list_values=[[5,6]]
+    lr = [1e-3, 2e-3]
+    list_values = [[5, 6]]
     
 for args in learning_rate():
     # perform_experiment_and_logging(args)
