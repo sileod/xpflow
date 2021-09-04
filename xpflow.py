@@ -4,7 +4,11 @@ from easydict import EasyDict as edict
 
 
 class Xp:
-    def __init__(self):
+    def __init__(self, dictionary=None):
+        self.xp_name = type(self).__name__
+        if dictionary:
+            for (k,v) in dictionary.items():
+                setattr(self, k, v)
         self.xp_name = type(self).__name__
 
     def _process_xp(self):
