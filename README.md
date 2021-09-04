@@ -19,7 +19,7 @@ learning_rate = {
     'lr' : [1e-3, 2e-3]
 }
 ```
-but you would have to write custom code to take care of the list values.
+However you have to write custom code to take care of the list values.
 
 `xpflow` does that under the hood and use classes instead of dictionaries. This allows a concise, readable, composable, and framework-agnostic formulation of experiments. You can specify the global hyperparameters into a base class, and make subclasses experiments to check the influence of some parameters, e.g. a learning rate. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects.
 With xpflow, you can also store and share your experiments for better reproducibility.
