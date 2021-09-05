@@ -103,8 +103,7 @@ class random_search_space(Xp):
     batch_size=[32,64,128,256]*10
     nb_epochs=[3,4,5]*10
 
-for args in random_search_space():
-    if random.random()>1/100: 
-        continue # skip 99% of the possible combinations
+rnd = lambda _ : random.random()
+for args in sorted(random_search_space(), key=rnd)[:100]:
     # perform_experiment_and_logging(args)
 ```
