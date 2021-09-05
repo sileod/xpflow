@@ -100,10 +100,9 @@ You can perform a random search by using lengthy lists of possible values and th
 ```python
 class random_search_space(Xp):
     learning_rate=list(np.logspace(-6,-1,100))
-    batch_size=[32,64,128,256]*10
-    nb_epochs=[3,4,5]*10
+    batch_size=[32,64,128,256]
+    nb_epochs=[3,4,5]
 
-rnd = lambda _ : random.random()
-for args in sorted(random_search_space(), key=rnd)[:100]:
+for args in sorted(random_search_space(), key=hash)[:100]:
     # perform_experiment_and_logging(args)
 ```
