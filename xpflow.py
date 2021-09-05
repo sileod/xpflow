@@ -1,6 +1,15 @@
 import copy
 import itertools
-from easydict import EasyDict as edict
+from easydict import EasyDict
+import hashlib
+import json
+
+class edict(EasyDict):
+    def __hash__(self):
+        json_dump = json.dumps(self, sort_keys=True, ensure_ascii=True)
+        digest = hashlib.md5(json_dump.encode('utf-8')).hexdigest()
+        identifier = int(digest, 16)
+        return identifier
 
 
 class Xp:
