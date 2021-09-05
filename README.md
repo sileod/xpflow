@@ -81,11 +81,11 @@ A 2 0.002 [5, 6]
 ##  Other specific use cases:
 
 #### Distributing computations across processes
-You can easily distribute the computations across processes by passing argparse arguments to your main script.
+You can easily distribute the computations across processes by passing argparse arguments to your main script. The argument yielded by xpflow are deterministically hashable into integers.
 
 ```python
-for i, args in enumerate(xp()):
-    if i%argparse_args.number_of_processes != argparse_args.process_index:
+for args in xp():
+    if hash(args) % argparse_args.number_of_processes != argparse_args.process_index:
         continue
     # perform_experiment_and_logging(args)
 ```
