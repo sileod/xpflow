@@ -29,7 +29,7 @@ from xpflow import Xp
 for args in Xp(learning_rate):
     # perform_experiment_and_logging(args)
 ```
-This allows a concise, readable, shrarable, composable, and framework-agnostic formulation of experiments. You can also use classes instead of dictionaries. Classes are a bit less verbose (no commas, no quote on parameter names), they enforce tabuled structure, and inheritence is cleaner.
+This allows a concise, readable, shareable, composable, and framework-agnostic formulation of experiments. You can also use classes instead of dictionaries. Classes are a bit less verbose (no commas, no quote on parameter names), they enforce tabuled structure, and inheritence is cleaner.
 
 ```python
 
