@@ -59,7 +59,9 @@ class Xp:
             selfi = copy.deepcopy(self)
             for k, v in args.items():
                 setattr(selfi, k, v)
-            yield selfi.edict()
+            xp = selfi.edict()
+            xp._hash = hash(xp)
+            yield xp
 
     def __str__(self):
         return str(self.__dict__)
