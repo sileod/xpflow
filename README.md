@@ -92,7 +92,11 @@ for args in xp():
 ```
 
 #### Sequential experiments
-`itertools.chain(xp1(), xp2())` will return the parameters for `xp1` then `xp2`. 
+```python
+for args in xp1() + xp2()
+    # perform_experiment_and_logging(args)
+
+```
 
 #### Random search
 
