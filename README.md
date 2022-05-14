@@ -80,9 +80,16 @@ A 2 0.002 [5, 6]
 
 ##  Other specific use cases:
 
+#### Sequential experiments
+```python
+for args in xp1() + xp2()
+    # perform_experiment_and_logging(args)
+
+```
+
 #### Distributing computations across processes
 You can easily distribute the computations across processes by passing argparse arguments to your main script. 
-The argument yielded by `xpflow` are deterministically hashable into integers (standard dict/edict are not hashable).
+The argument yielded by `xpflow` are *deterministically* hashable into integers (standard dict/edict are not hashable).
 
 ```python
 for args in xp():
@@ -91,12 +98,7 @@ for args in xp():
     # perform_experiment_and_logging(args)
 ```
 
-#### Sequential experiments
-```python
-for args in xp1() + xp2()
-    # perform_experiment_and_logging(args)
 
-```
 
 #### Random search
 
