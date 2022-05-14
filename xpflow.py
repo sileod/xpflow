@@ -11,7 +11,14 @@ class edict(EasyDict):
         identifier = int(digest, 16)
         return identifier
 
-
+class Xpl():
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def __iter__(self):
+        for x in [self.a, self.b]:
+            for y in x:
+                yield y
 class Xp:
     def __init__(self, dictionary=None):
         self.xp_name = type(self).__name__
@@ -19,7 +26,10 @@ class Xp:
             for (k,v) in dictionary.items():
                 setattr(self, k, v)
         self.xp_name = type(self).__name__
-
+        
+    def __add__(self, other):
+        return Xpl(self, other)
+    
     def _process_xp(self):
         xp = {
             k: getattr(self, k)
