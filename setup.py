@@ -11,7 +11,6 @@ setup(name='xpflow',
       install_requires=['easydict'],
       download_url='https://github.com/sileod/xpflow/archive/refs/tags/v0.tar.gz',
       py_modules=['xpflow'],
-      install_requires=['easydict'],
       long_description=long_description,
       long_description_content_type='text/markdown',
       zip_safe=False)
