@@ -13,5 +13,5 @@ setup(name='xpflow',
       py_modules=['xpflow'],
       install_requires=['easydict'],
       long_description=long_description,
-      long_description_content_type='text/markdown'
+      long_description_content_type='text/markdown',
       zip_safe=False)
