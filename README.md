@@ -1,4 +1,4 @@
-# xpflow
+# xpflow: nested loops as classes
 
 Did you ever perform experiments by nesting loops like this ? 
 ```python
