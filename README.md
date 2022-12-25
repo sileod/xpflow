@@ -21,7 +21,7 @@ learning_rate = {
 ```
 However, you have to write custom code to take care of the list values.
 
-`xpflow` does that under the hood. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects.
+`xpflow` does that under the hood. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. Nested loops become objects (classes).
 
 ```python
 from xpflow import Xp
