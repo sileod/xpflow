@@ -4,6 +4,18 @@ from easydict import EasyDict
 import hashlib
 import json
 
+def override(xp):
+    import argparse, sys
+    parser = argparse.ArgumentParser()
+    _, unknown = parser.parse_known_args(sys.argv[1:])
+    cmd_args_dict = dict(zip(unknown[:-1:2],unknown[1::2]))
+    cmd_args_dict = {k.lstrip('-'): v for (k,v) in cmd_args_dict.items()}
+    print(f"cmd_args: {cmd_args_dict}")
+    for k,v in cmd_args_dict.items():
+        if k in xp:
+            xp[k]=type(xp[k])(v)
+    return xp
+
 class edict(EasyDict):
     def __hash__(self):
         json_dump = json.dumps(self, sort_keys=True, ensure_ascii=True)
@@ -70,8 +82,13 @@ class Xp:
             for k, v in args.items():
                 setattr(selfi, k, v)
             xp = selfi.edict()
+            xp = override(xp)
             xp._hash = hash(xp)
             yield xp
+    
+    def first(self):
+        for xp in self:
+            return xp
 
     def __str__(self):
         return str(self.__dict__)
