@@ -5,7 +5,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
 setup(name='xpflow',
-      version='0.3',
+      version='{{VERSION_PLACEHOLDER}}',
       description='Utilities for representing experiments with classes',
       url='https://github.com/sileod/xpflow',
       author='sileod',
