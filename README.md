@@ -87,6 +87,10 @@ for args in xp1() + xp2()
 
 ```
 
+### Command line arguments
+
+xpflows automatically manages command line arguments if you want to use your code in a script instead of interactive mode. Just pass arguments, and if they are in a Xp class, they will be overriden with a type matching the original value.
+
 #### Distributing computations across processes
 You can easily distribute the computations across processes by passing argparse arguments to your main script. 
 The argument yielded by `xpflow` are *deterministically* hashable into integers (standard dict/edict are not hashable).
@@ -97,8 +101,6 @@ for args in xp():
         continue
     # perform_experiment_and_logging(args)
 ```
-
-
 
 #### Random search
 
@@ -112,4 +114,13 @@ class random_search_space(Xp):
 
 for args in sorted(random_search_space(), key=hash)[:100]:
     # perform_experiment_and_logging(args)
+```
+
+### Context managers
+
+xpflow also provide context managers to faciliate sequential experiments by catching exceptions more concisely than using `try/except`
+```python
+with xpflow.Catch():
+    #do_stuff
+print(_EXCEPTIONS)
 ```
