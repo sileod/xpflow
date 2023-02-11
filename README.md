@@ -116,9 +116,9 @@ for args in sorted(random_search_space(), key=hash)[:100]:
     # perform_experiment_and_logging(args)
 ```
 
-### Context managers
+#### Context managers
 
-xpflow also provide context managers to faciliate sequential experiments by catching exceptions more concisely than using `try/except`
+xpflow also provides context managers to faciliate sequential experiments by catching exceptions more concisely than using `try/except`
 ```python
 with xpflow.Catch():
     #do_stuff
