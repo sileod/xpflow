@@ -21,7 +21,7 @@ learning_rate = {
 ```
 However, you have to write custom code to take care of the list values.
 
-`xpflow` does that under the hood. Lists of values are used to denote multiple values to try for a given parameter. All combinations will be generated in the form of EasyDict objects. Nested loops become objects (classes).
+`xpflow` does that under the hood. Lists of values are used to denote multiple values to try for a given field. All combinations will be generated in the form of EasyDict objects. Nested loops become objects.
 
 ```python
 from xpflow import Xp
@@ -29,7 +29,7 @@ from xpflow import Xp
 for args in Xp(learning_rate):
     # perform_experiment_and_logging(args)
 ```
-This allows a concise, readable, shareable, composable, and framework-agnostic formulation of experiments. You can also use classes instead of dictionaries. Classes are a bit less verbose (no commas, no quote on parameter names), they enforce tabulation, they are easier to read, extensible, and inheritence is cleaner.
+This allows a readable, shareable, composable, and framework-agnostic formulation of experiments. You can also use classes instead of dictionaries, they are more composable and look cleaner.
 
 ```python
 
