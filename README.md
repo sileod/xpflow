@@ -42,16 +42,11 @@ for args in learning_rate():
     # perform_experiment_and_logging(args)
 ```
 
-## Installation
+## Installation and usage
 ```
 pip install xpflow
 ```
-or the last version with
-```
-pip install git+https://github.com/sileod/xpflow.git 
-```
 
-## Usage
 Just make sure that your experiment classes inherits the Xp class. Instanciating the class will provide an iterable yielding the possible value combinations.
 Lists of values will be used to generate the possible combinations. You can use a list of lists to represent values that should actually be lists.
 
